@@ -520,7 +520,7 @@ begin
    GPUSTAT(23)             <= GPUSTAT_DisplayDisable;
    GPUSTAT(24)             <= GPUSTAT_IRQRequest;
    GPUSTAT(25)             <= GPUSTAT_DMADataRequest;
-   GPUSTAT(26)             <= GPUSTAT_ReadyRecCmd and ((not gpu_dmaRequest) or (not DMA_GPU_waiting));
+   GPUSTAT(26)             <= GPUSTAT_ReadyRecCmd and fifoIn_Empty;
    GPUSTAT(27)             <= GPUSTAT_ReadySendVRAM;
    GPUSTAT(28)             <= GPUSTAT_ReadyRecDMA;
    GPUSTAT(30 downto 29)   <= GPUSTAT_DMADirection;
