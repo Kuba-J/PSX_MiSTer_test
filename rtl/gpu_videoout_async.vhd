@@ -487,7 +487,7 @@ begin
                vdispNew := vdispNew + 1;
                -- GPUSTAT_DrawingOddline in interlaced mode is set 1 line before vsync ends (tested on 7502 PAL console)
                if (mode480i = '1') then
-                  if (vdispNew = vDisplayStart) then
+                  if (vdispNew = vDisplayStart or (vDisplayStart = 0 and vdispNew = 1)) then
                      if (videoout_settings.vramRange(10) = '0' and videoout_reports.interlacedDisplayField = '1') then videoout_reports.GPUSTAT_DrawingOddline <= '1'; end if;
                      if (videoout_settings.vramRange(10) = '1' and videoout_reports.interlacedDisplayField = '0') then videoout_reports.GPUSTAT_DrawingOddline <= '1'; end if;
                   end if;
